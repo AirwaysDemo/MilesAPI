@@ -16,9 +16,7 @@ public type Request record {
 
 service / on new http:Listener(9091) {
     // Define your resource functions here
-    resource function post miles(@http:Payload Request payload,@http:Header string header) returns json|error {
-        io:print(header);
-
+    resource function post miles(@http:Payload Request payload) returns json|error {
         http:Client britishEP = check new ("https://b48cc93e-fa33-4420-a155-bc653b4d46be-dev.e1-us-east-azure.choreoapis.dev/jexg/british-airways-miles-calculator/british-miles-calculator-119/v1.0/britishairways/miles",
         
         auth ={
